@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://TsumaR_portfolio.com/blog/</loc>
+    <lastmod>2020-03-29T16:14:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://TsumaR_portfolio.com/</loc>
+    <lastmod>2020-03-29T16:14:02+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://TsumaR_portfolio.com/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="http://TsumaR_portfolio.com/"
+                />
+  </url>
+  
+  <url>
+    <loc>http://TsumaR_portfolio.com/blog/supcon_r/</loc>
+    <lastmod>2020-03-29T16:14:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://TsumaR_portfolio.com/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://TsumaR_portfolio.com/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="http://TsumaR_portfolio.com/tags/"
+                />
+  </url>
+  
+</urlset>
