@@ -1,6 +1,6 @@
 ---
 title: "HugoとNetlifyでホームページ作成"
-date: 2020-03-30T01:19:49+09:00
+date: 2020-03-30T01:20:49+09:00
 ---
 
 このホームページを作成した時のログ
@@ -13,13 +13,13 @@ date: 2020-03-30T01:19:49+09:00
 HUGOとnetifyで作成したportfolioにすることを目指した，ログブログ。
 git submoduleの使い方に詰まったので，[この記事](https://qiita.com/sotarok/items/0d525e568a6088f6f6bb)などを参考にした。
 
-## HUGOのインストール　
+### HUGOのインストール　
 ```sh
 brew update
 brew install HUGO
 ```
 
-## HUGOの準備
+### HUGOの準備
 まず，自分のportfolioを設置するディレクトリを作成し，`.git`を作成する。
 ```sh
 hugo new site portfolio
@@ -29,7 +29,7 @@ git add .
 git commit -m 'Initial commit'
 ```
 
-## HUGOテーマのintroductionをsubmoduleとして導入
+### HUGOテーマのintroductionをsubmoduleとして導入
 
 今回のportfolioにはHUGOの[introduction](https://themes.gohugo.io/hugo-theme-introduction/)テーマを用いた。
 先ほど作成したportfolioディレクトリに上記のテーマのサブモジュールを追加する。
@@ -50,7 +50,7 @@ git merge --allow-unrelated-histories origin/master
 ```
 で強行突破
 
-## configファイルの編集
+### configファイルの編集
 ```sh
 cd ../../ #元のportfolioディレクトリに移動
 cp ./themes/introduction/exampleSite/config.toml ./config.toml
@@ -62,7 +62,7 @@ git add config.toml
 git commit -m "setting config file"
 ```
 
-## 基本ファイルの作成　
+### 基本ファイルの作成　
 
 とりあえず，骨格となる書類を追加していく。
 ```sh
@@ -72,28 +72,32 @@ hugo new work/_index.md
 ```
 形式はsubmoduleした`themes/introduction/exampleSite`の中にあるファイルを参考にしてvimで編集した。
 
-## ローカルでサイトの確認
+### ローカルでサイトの確認
 ```sh
 hugo server
 ```
 上記のコマンドにより，ポート1313のローカルサーバーが立ち上がる。ブラウザから`http://localhost:1313/`にアクセスして挙動を確認する。
 
-## netlifyでの公開
+### netlifyでの公開
 次に作成したホームページを公開する。
 ```sh
 hugo
 ```
 でpublicディレクトリの作成。さらに，netlifyの公式[サイト](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/)よりコピーした`netlify.toml`を[これらのサイト](https://qiita.com/jrfk/items/4c6df87ca72a76e30224)を参考にして修正。
 
-## ここまででのエラー　
-* 1. 写真が表示されない　
-* 2. latest postなどの表示がない　
-* 3. 記事を全部見るなどのページに飛んでいくリンクもページも存在しない
+#### ここまででのエラー　
+1. 写真が表示されない　
+2. latest postなどの表示がない　
+3. 記事を全部見るなどのページに飛んでいくリンクもページも存在しない
 
 ### 1. 写真が表示されないについて
 SSL認証による可能性があるので，独自ドメインを取得して，HTTPS設定をした。
 参考にしたのはこの[サイト](https://jamstack.jp/blog/how_to_set_custom_domain/)
 Netlifyではwwwありドメインを強く推奨しているらしい。
+
+結果的にHTTPSにしただけでは表示されなかった。結果的には，おそらく間違いが大量に存在した`config.toml`を修正して表示された。
+
+2.3は記事を追加するだけで解決。
 
 [参考文献1](https://blog.tomoya.dev/2019/01/hugo-with-netlify/)
 [参考文献2](https://r17n.page/2019/07/24/create-hexo-blog-process/)
