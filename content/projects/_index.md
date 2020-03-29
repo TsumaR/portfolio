@@ -1,11 +1,6 @@
 ---
-title: "_Index" # Title of your project
-date: 2020-03-29T16:13:24+09:00
-weight: 0 # Order in which to show this project on the home page
-external_link: "" # Optional external link instead of modal
-resources:
-    - src: plant.jpg
-      params:
-          weight: -100 # Optional weighting for a specific image in this project folder
-draft: true
----
+title: "Works"
+weight: 10
+--- 
+
+Here is some introduction text for my projects.
