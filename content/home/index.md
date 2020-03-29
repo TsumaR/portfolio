@@ -1,5 +1,5 @@
 ---
-title: "Hi, I'm Ryota Wagatsuma"
+title: "Ryota Wagatsuma"
 headless: true
 ---
 
