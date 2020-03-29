@@ -60,7 +60,7 @@ DefaultContentLanguage           = "ja"                    # Default language fo
     #    html_attributes = "rel=\"me\"" # Add rel attribute for Mastodon profile link verification
 
     [[params.social]]
-        url  == "https://github.com/TsumaR"
+        url  = "https://github.com/TsumaR"
         icon = "github"
         icon_pack = "fab"
 
