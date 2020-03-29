@@ -1,5 +1,5 @@
 ---
-title: "Post"
+title: "Blog"
 weight: 20
 ---
 
