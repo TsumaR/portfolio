@@ -4,8 +4,9 @@ image: "profile.JPG"
 weight: 8
 ---
 
-This is my intrudction.
+## Ryota Wagatsuma
+#### 我妻 竜太
 
-### Features 
-
-* I received the BE degree in biotechnology from Waseda University, Tokyo, Japan in 2020
+* 2016年3月  私立武蔵高等学校 卒業
+* 2020年3月  早稲田大学 卒業 (専攻：生命医科学)
+* 2020年4月- 早稲田大学 修士課程 在籍
