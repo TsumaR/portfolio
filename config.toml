@@ -81,8 +81,8 @@ DefaultContentLanguage           = "ja"                    # Default language fo
         languageCode     = "ja"
         contentDir       = "content"
         weight           = 0
-        title            = "TsumaR"
-        [languages.en.params]
+        title            = "Ryota Wagatsuma"
+        [languages.ja.params]
             description  = "Website Description"   # Max 160 characters show in search results
             # footerText   = ""                      # Text to override default footer text (markdown allowed)
 
