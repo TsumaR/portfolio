@@ -30,8 +30,8 @@ DefaultContentLanguage           = "ja"                    # Default language fo
     # Share buttons on blog post pages
     [params.share]
         twitter                  = true
-        facebook                 = false
-        googlePlus               = false
+        facebook                 = true
+        googlePlus               = true
         pinterest                = true
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
