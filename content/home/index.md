@@ -3,4 +3,4 @@ title: "Ryota Wagatsuma"
 headless: true
 ---
 
-Bioinformatics and programming
+Bioinformatics and Biotechnology
