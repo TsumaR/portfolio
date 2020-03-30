@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website Description">
+<title>
+Atac-seq pipeline 作成(バージョン1) - Ryota Wagatsuma
+</title>
+
+
+
+        <meta property="og:title" content="Atac-seq pipeline 作成(バージョン1) - Ryota Wagatsuma" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Website Description"/>
+<meta property="og:url" content="https://www.tsumar.com/blog/atac_seq_pipeline/"/>
+<meta property="og:site_name" content="Ryota Wagatsuma"/>
+
+
+
+
+<meta property="og:image" content="https://www.tsumar.com/home/profile.JPG"/>
+
+
+
+
+        
+<link rel="shortcut icon" href="/img/fav.ico">
+
+
+        
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.1eaffbdff5446b797511e3967e8419d2ad7851677604addf74d560bdfc5f91c7.css" integrity="sha256-Hq/73/VEa3l1EeOWfoQZ0q14UWd2BK3fdNVgvfxfkcc=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+        
+        
+        
+        
+    </head>
+    <body>
+        <section id="top" class="section">
+            
+            <div class="container hero  fade-in one ">
+                
+
+    <h1 class="bold-title is-1">Blog</h1>
+
+
+            </div>
+            
+            <div class="section  fade-in two ">
+                
+<div class="container">
+    <hr>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu " id="navMenu">
+            
+            
+            
+            
+            <a class="navbar-item" href="/"></a>
+            
+
+            
+            
+
+            
+                
+            
+
+            
+                
+            
+
+            
+            
+            
+            
+            
+            <a class="navbar-item" href="/#about">About</a>
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/projects/">
+                  
+                  Work
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/blog/">
+                  
+                  
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+
+            
+            
+            <a class="navbar-item" href="/#contact">Contact</a>
+            
+            
+
+            
+
+            
+            
+        </div>
+    </nav>
+    <hr>
+</div>
+
+
+
+                
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title">
+            <a href="https://www.tsumar.com/blog/atac_seq_pipeline/">Atac-seq pipeline 作成(バージョン1)</a>
+        </h2>
+        <div class="post-data">
+            Mar 30, 2020 |
+            
+        </div>
+        
+        <div class="blog-share">
+            :
+            
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Atac-seq%20pipeline%20%e4%bd%9c%e6%88%90%28%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b31%29%20https%3a%2f%2fwww.tsumar.com%2fblog%2fatac_seq_pipeline%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+            
+            
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.tsumar.com%2fblog%2fatac_seq_pipeline%2f"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fab fa-facebook-f"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+            
+            
+            <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.tsumar.com%2fblog%2fatac_seq_pipeline%2f&amp;description=Atac-seq%20pipeline%20%e4%bd%9c%e6%88%90%28%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b31%29" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fab fa-pinterest-p"></i>
+                <span class="hidden">Pinterest</span>
+            </a>
+            
+            
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fwww.tsumar.com%2fblog%2fatac_seq_pipeline%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fab fa-google-plus-g"></i>
+                <span class="hidden">Google+</span>
+            </a>
+            
+        </div>
+        
+        
+    </div>
+    
+    <div class="container markdown top-pad">
+        <h1 id="方針">方針</h1>
+<p>このパイプラインを作成したときのデータのクオリティがあまりにも低かったため，大枠を作成するまでのログを残した。
+今後データを見て，最適化していく。</p>
+<h3 id="リファレンスの準備">リファレンスの準備</h3>
+<p>リファレンス配列は通常，ensebmleかUCSCのゲノムブラウザーからダウンロードする。今回はFASTAファイルをUCSC genome browserから，gtfファイルをensembleから持ってきた。gtfファイルはensembleの方が情報量が多いので詳細解析をする時はgtfの方が良いらしい。　
+注意しないといけないのが，ensembleのgene idは単なる数字なのに対してUCSCではchr1のように異なる。それを揃えるためensembleから持ってきたgtfファイルの先頭にchrを加えていく。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">grep -v <span style="color:#ae81ff">\#</span> Homo_sapiens.GRCh38.98.gtf | awk <span style="color:#e6db74">&#39;{print &#34;chr&#34; $0 }&#39;</span> &gt; Homo_sapiens.GRCh38.98.addchr.gtf
+</code></pre></div><h3 id="仮想環境の準備">仮想環境の準備</h3>
+<p><code>conda create -n atac_seq python3.7.1 numpy</code>
+でatac_seq用の仮想環境を作成　
+<code>conda install -c bioconda macs2</code>
+で必要なmacs2をインストールしておく。　</p>
+<h1 id="手順">手順</h1>
+<h3 id="クリーニング">クリーニング　</h3>
+<p><code>trimmomatic</code>を利用してアダプター配列や末端の配列を除去する。　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">java -jar $trimmomatic <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    PE -phred33 -threads $cpu <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -trimlog $qc_dir/<span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>_log.txt <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>_1.fastq <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>_2.fastq <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    $cln1 $uncln1 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    $cln2 $uncln2 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ILLUMINACLIP:$adapter:2:30:10 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    LEADING:20 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    TRAILING:20 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    SLIDINGWINDOW:4:15 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    MINLEN:36
+</code></pre></div><h3 id="qc">qc</h3>
+<p><code>fastq</code>を利用してqcファイルの作成。この際，<code>trimmomatic</code>を利用してクリーニングした後の配列と，していない配列両方に対してqcreportを作成。その結果を<code>../result/qcreport</code>ディレクトリに保存している。　
+パイプラインと別に後から，<code>../result/qcreport</code>ディレクトリで，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">multiqc .
+</code></pre></div><p>を用いて１つのqcレポートにまとめる。 <del>その予定だが，<code>networkx</code>パッケージを見つけることができないというエラーを吐かれて実行できない。環境が壊れてしまっているのか，改めて入れ直して実行してもうまくいかない。</del>　
+仕方なく，<code>pip install networkx</code>したらうまくいった。</p>
+<h3 id="mapping">mapping</h3>
+<p><code>STAR</code>を用いてmappingする。 この際<code>STAR</code>は最低32GBのメモリを確保しておくことが推奨されているそうなのでそこに気をつける。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$STAR --runThredN $cpu <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --genomeDir $star_index <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --readFileIn $cln1 $cln2 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --outSAMtype BAM SortedByCoordinate <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --outFileNamePrefix <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>.
+</code></pre></div><h3 id="重複している配列の除去ミトコンドリア配列の除去">重複している配列の除去，ミトコンドリア配列の除去</h3>
+<p>ピークコールする前に<code>picard</code>を用いて重複配列の除去を行う。MultiQCによるQCレポートを見るとわかるが，今回はduplicateが異常に多かった(約95%)，そのため，この操作の際にファイル容量が大幅に減少した。 　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">java -jar $picard MarkDuplicates <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    I<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>.bamAligned.sortedByCoord.out.bam <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    M<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>_dupl.bam <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    O<span style="color:#f92672">=</span>$cln_bam
+</code></pre></div><p>さらに，ミトコンドリアとY染色体にあったっているリードを除去する。ただし，今回はミトコンドリアに当たっているリードは0だった。　
+<code>samtools</code>を用いてそれらのクリーニングを行なった後に，のちの解析のため，sortとindex作成を行なっておく。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$samtools view -h -F4 $ddup_bam | grep -v chrM | $samtools view -b &gt; $MT_bam
+$samtools view -h -F4 $MT_bam | grep -v chrY | $samtools view -b &gt; $cln_bam
+$samtools sort -o $cln_bam $cln_bam
+$samtools index $cln_bam
+</code></pre></div><h3 id="ピークコール">ピークコール　</h3>
+<p><code>macs2</code>を用いてピークコールする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">macs2 callpeak <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -t $cln_bam <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -n $id <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -f BAMPE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -g $species <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --nomodel <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --nolambda <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --keep-dup all <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --call-summits
+</code></pre></div><h3 id="ピークのアノテーション付け">ピークのアノテーション付け</h3>
+<p>HOMERの<code>annotatePeaks.pl</code>を用いて，MACS2によって得られたピークにアノテーション付けを行う。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$annotate <span style="color:#e6db74">${</span>id<span style="color:#e6db74">}</span>_peaks.narrowPeak hg38 &gt; $an_peak
+</code></pre></div><p>間違っている気もするので，中身の確認をしっかりと行う必要がある。</p>
+<h3 id="ピークマージと比較">ピークマージと比較</h3>
+<p>得られたピークをマージする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat a.bed b.bed c.bed | bedtools merge -i - &gt; merged.bed
+</code></pre></div><p>マージしたピークとリファレンスゲノムの比較を行うため，重複を調べる。この際，-fパラメータを指定しないので1塩基でも重複していたら重複とした。
+<code>bedtools insert</code>で重複を確認する。どのように行なっているかは下図参照。
+<img src="https://github.com/TsumaR/memo/blob/master/figure/intersect-glyph.png" alt="bedtools insert"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">bedtools intersect -wa -a ../omni_atac/SRR5427886/SRR5427886_peaks.narrowPeak -b merged_atac5.bed &gt; atac5_intersect.bed
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wc -l SRR5427886_peaks.narrowPeak
+</code></pre></div><p>でOmni-ATACのピーク数を確認すると79297だった。
+一方で，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wc -l merged.bed
+</code></pre></div><p>では，927しかピークが検出されなかった。</p>
+<p>この結果を<code>uniq -u intersect_omni.bed | wc -l </code>で確認したところ，95のみ，</p>
+<p>bedtools intersect -wa -a omni_atac/SRR5427886/SRR5427886_peaks.narrowPeak -b 191101_atac5/merged_atac5.bed &gt; atac5_intersect.bed</p>
+<h3 id="rpythonでの解析">R，pythonでの解析</h3>
+<p>以上の操作によって得られたファイル，マージのピークファイル，アノテーションファイル(今回はマージしていないもの)，</p>
+<p>uniq -u atac5_intersect.bed | wc -l
+4214</p>
+
+    </div>
+    
+    
+
+
+
+                
+                <div class="container">
+    <hr>
+</div>
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+                <div class="section" id="footer">
+    <div class="container has-text-centered">
+    
+        <span class="footer-text">
+            
+        </span>
+    
+    </div>
+</div>
+
+                
+            </div>
+        </section>
+        
+        
+
+
+<script src="https://www.tsumar.com/js/bundle.e6934e69d06bb8a213134f4c1468f9478bb7755e786dfb60e3c5a917c5335805.js" integrity="sha256-5pNOadBruKITE09MFGj5R4u3dV54bftg48WpF8UzWAU="></script>
+
+
+
+        
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website Description">
+<title>
+ウイルスゲノム検出パイプラインVIRTUSを使ってみる - Ryota Wagatsuma
+</title>
+
+
+
+        <meta property="og:title" content="ウイルスゲノム検出パイプラインVIRTUSを使ってみる - Ryota Wagatsuma" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Website Description"/>
+<meta property="og:url" content="https://www.tsumar.com/blog/toya_virus/"/>
+<meta property="og:site_name" content="Ryota Wagatsuma"/>
+
+
+
+
+<meta property="og:image" content="https://www.tsumar.com/home/profile.JPG"/>
+
+
+
+
+        
+<link rel="shortcut icon" href="/img/fav.ico">
+
+
+        
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.1eaffbdff5446b797511e3967e8419d2ad7851677604addf74d560bdfc5f91c7.css" integrity="sha256-Hq/73/VEa3l1EeOWfoQZ0q14UWd2BK3fdNVgvfxfkcc=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+        
+        
+        
+        
+    </head>
+    <body>
+        <section id="top" class="section">
+            
+            <div class="container hero  fade-in one ">
+                
+
+    <h1 class="bold-title is-1">Blog</h1>
+
+
+            </div>
+            
+            <div class="section  fade-in two ">
+                
+<div class="container">
+    <hr>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu " id="navMenu">
+            
+            
+            
+            
+            <a class="navbar-item" href="/"></a>
+            
+
+            
+            
+
+            
+                
+            
+
+            
+                
+            
+
+            
+            
+            
+            
+            
+            <a class="navbar-item" href="/#about">About</a>
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/projects/">
+                  
+                  Work
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/blog/">
+                  
+                  
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+
+            
+            
+            <a class="navbar-item" href="/#contact">Contact</a>
+            
+            
+
+            
+
+            
+            
+        </div>
+    </nav>
+    <hr>
+</div>
+
+
+
+                
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title">
+            <a href="https://www.tsumar.com/blog/toya_virus/">ウイルスゲノム検出パイプラインVIRTUSを使ってみる</a>
+        </h2>
+        <div class="post-data">
+            Mar 29, 2020 |
+            
+        </div>
+        
+        <div class="blog-share">
+            :
+            
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=%e3%82%a6%e3%82%a4%e3%83%ab%e3%82%b9%e3%82%b2%e3%83%8e%e3%83%a0%e6%a4%9c%e5%87%ba%e3%83%91%e3%82%a4%e3%83%97%e3%83%a9%e3%82%a4%e3%83%b3VIRTUS%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b%20https%3a%2f%2fwww.tsumar.com%2fblog%2ftoya_virus%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+            
+            
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.tsumar.com%2fblog%2ftoya_virus%2f"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fab fa-facebook-f"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+            
+            
+            <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.tsumar.com%2fblog%2ftoya_virus%2f&amp;description=%e3%82%a6%e3%82%a4%e3%83%ab%e3%82%b9%e3%82%b2%e3%83%8e%e3%83%a0%e6%a4%9c%e5%87%ba%e3%83%91%e3%82%a4%e3%83%97%e3%83%a9%e3%82%a4%e3%83%b3VIRTUS%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%8b" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fab fa-pinterest-p"></i>
+                <span class="hidden">Pinterest</span>
+            </a>
+            
+            
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fwww.tsumar.com%2fblog%2ftoya_virus%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fab fa-google-plus-g"></i>
+                <span class="hidden">Google+</span>
+            </a>
+            
+        </div>
+        
+        
+        
+        <p>
+            Tags:
+            
+            <a href="/tags/code">code</a>,
+            
+            <a href="/tags/rna-seq">rna-seq</a>,
+            
+            <a href="/tags/pipeline">pipeline</a>
+            
+        </p>
+        
+    </div>
+    
+    <div class="container markdown top-pad">
+        <h1 id="to-ya-hi-seqランの追加解析">to-ya Hi-Seqランの追加解析</h1>
+<p>Mi-Seqのデータでサイトメガロウイルスにマップされるリードが存在しなかったため，HiSeqで追加ランしたが，結局ヒットしなかったデータ。
+目的ウイルスをリファレンスにし，直接マッピングする手法を取っていた。今回，ヒトなどに対する通常のRNA-seq結果から，763ウイルスにマッピングしてくれる<a href="https://github.com/yyoshiaki/VIRTUS">パイプラインツール</a>を用いて包括的にウイルスゲノムを調べる。</p>
+<h2 id="必要ツールのインストール">必要ツールのインストール</h2>
+<p>このパイプラインはワークフロー言語のCWLを用いており，docker環境を利用できるので，基本的にツールのインストールは必要ない。自分の場合，CWLがスパコン上に存在しなかったため，CWLのインストールだけ行った。
+また，このパイプラインはdockerを利用することを前提としているが，東大スパコンとOILのスパコンにdockerは存在しないため，singularityを利用する必要がある。その点を変更して記載したのが以下の手順スクリプトである。</p>
+<h4 id="1-仮想環境作成">1. 仮想環境作成</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">conda create -n cwl_env 
+</code></pre></div><h4 id="2-cwlインストール">2. cwlインストール</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pip install cwl 
+</code></pre></div><p>この際，condaでインストールしようとしたが，謎のエラーが発生したので，pipを使った。　
+また，一部のcwlはjavascriptを利用しているため，node.jsが必要になるのでインストールする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">conda install nodejs 
+</code></pre></div><h4 id="3-virtusレポジトリのクローン">3. VIRTUSレポジトリのクローン</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone https://github.com/yyoshiaki/VIRTUS.git 
+</code></pre></div><h4 id="4-インデックスの作成">4. インデックスの作成</h4>
+<p>この操作は最初の一回のみで良い。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cwltool --singularity VIRTUS/workflow/createindex.cwl createindex.job.yaml 
+</code></pre></div><h4 id="5実行">5.　実行　</h4>
+<p>1ファイルごとにコマンドを実行する必要がある。自分の場合はサンプルごとにディレクトリを作成し，作成したジョブスクリプトを投げるごとで同時に処理できるようにした。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cwltool --singularity ../../VIRTUS/workflow/VIRTUS.PE.cwl <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--fastq1 raw_1.fastq.gz <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--fastq2 raw_2.fastq.gz <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--genomeDir_human ../../STAR_index_human <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--genomeDir_virus ../../STAR_index_virus <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--salmon_index_human ../../salmon_index_human <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--salmon_quantdir_human salmon_human <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--outFileNamePrefix_human human <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--nthreads <span style="color:#ae81ff">8</span>
+</code></pre></div><p>で動いた。</p>
+<hr>
+<h2 id="処理内容">処理内容</h2>
+<p>STARでヒトゲノムにマッピングを行い，<code>samtools view</code>でunmapを抽出。<code>bedtools bamtofastq</code>でそれらをfastqに戻す。<a href="https://github.com/WGLab/VirTect">VirTect</a>のウイルスゲノムをリファレンスにしてマッピングし，ウイルスにマッピングされる配列を取得する。</p>
+<h2 id="結果">結果</h2>
+<p>目的のサイトメガロウイルスにマッピングされなかったが，同じヘルペスウイルス属の7型に1条件だけマッピングされた。　
+この時，どのように張り付いているのかが気になる。</p>
+<h4 id="ヘルペスウイルスだけのbamファイル">ヘルペスウイルスだけのbamファイル</h4>
+<p>VIRTUSを動かした後には，ヒトゲノムにアンマップだったリードをウイルスゲノムにマップした結果のbamファイルが含まれる。
+今回，ヘルペスウイルスのどのあたりにマッピングされているのかを確認するために，とりあえずherpesvirus_7に張り付いているリードをbamファイルから抽出した。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">samtools view -@ <span style="color:#ae81ff">10</span> -h virusAligned.sortedByCoord.out.bam | grep <span style="color:#e6db74">&#34;herpesvirus_7&#34;</span> samtools view -b | samtools sort -@ 8&gt; herpesvirus7.bam 
+</code></pre></div><p>その結果をigvで表示した。この際fastaファイルをツールで参照しているウイルス763を含むものにしないと，参照名の違いによりエラーが発生して表示されなかった。</p>
+<h4 id="リード数が与える影響の確認">リード数が与える影響の確認</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">リード数 
+../P14_E1-01/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">38649055</span>
+../P14_E1-02/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">33191521</span>
+../P14_E1-03/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">35365741</span>
+../P14_E1-04/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">60064508</span>
+../P14_E1-05/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">33287752</span>
+../P14_E1-07/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">28832664</span>
+../P14_E1-08/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">29778196</span>
+../P14_E1-09/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">29911098</span>
+../P14_E1-10/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">16698732</span>
+../P14_E1-11/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">17289084</span>
+../P14_E1-12/humanLog.final.out:                          Number of input reads | <span style="color:#ae81ff">39701191</span>
+</code></pre></div><p>ウイルスにマッピングした際のリード数は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">../P14_E1-01/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">2655508</span>
+../P14_E1-02/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">3124898</span>
+../P14_E1-03/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">2428111</span>
+../P14_E1-04/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">10639309</span>
+../P14_E1-05/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">2781987</span>
+../P14_E1-07/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">2996344</span>
+../P14_E1-08/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">5947061</span>
+../P14_E1-09/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">6377769</span>
+../P14_E1-10/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">4254719</span>
+../P14_E1-11/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">3842958</span>
+../P14_E1-12/virusLog.final.out:                          Number of input reads | <span style="color:#ae81ff">5601884</span> 
+</code></pre></div><p>であり，リード数自体が条件に影響を与えているわけではなさそう。</p>
+<h4 id="挿入箇所の確認">挿入箇所の確認</h4>
+<p>igvの結果を見ると，同じ箇所が挿入されていることがわかった。
+700~900(1200)くらいと，9800ふきん，143000ふきん，153000付近。
+この箇所の配列と，特徴を文献より調べる。</p>
+<p>全て遺伝子領域と重複していなかった。おそらく配列特異性によるエラーであると考えられる。マッピングされている領域の長さも,共通してcoverageが高くなっているところは100bp未満であり，反復配列などのエラーによるものである可能性が高いことがわかる。</p>
+
+    </div>
+    
+    
+
+
+
+                
+                <div class="container">
+    <hr>
+</div>
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+                <div class="section" id="footer">
+    <div class="container has-text-centered">
+    
+        <span class="footer-text">
+            
+        </span>
+    
+    </div>
+</div>
+
+                
+            </div>
+        </section>
+        
+        
+
+
+<script src="https://www.tsumar.com/js/bundle.e6934e69d06bb8a213134f4c1468f9478bb7755e786dfb60e3c5a917c5335805.js" integrity="sha256-5pNOadBruKITE09MFGj5R4u3dV54bftg48WpF8UzWAU="></script>
+
+
+
+        
+        
+        
+        
+    </body>
+</html>

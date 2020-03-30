@@ -3,6 +3,7 @@ theme                            = "introduction"
 DefaultContentLanguage           = "ja"                    # Default language for multilingual sites
 # disqusshortname                 = ""                       # https://gohugo.io/content-management/comments
 # googleAnalytics                 = ""                       # https://gohugo.io/templates/internal/#google-analytics
+hasCJKLanguage                   = true
 
 [params]
     themeStyle                   = "light"                 # Choose "light" or "dark"
@@ -86,7 +87,7 @@ DefaultContentLanguage           = "ja"                    # Default language fo
         contentDir       = "content"
         weight           = 0
         title            = "Ryota Wagatsuma"
-        hasCJKLanguage   = true
+        #hasCJKLanguage   = true
         [languages.ja.params]
             description  = "Website Description"   # Max 160 characters show in search results
             # footerText   = ""                      # Text to override default footer text (markdown allowed)

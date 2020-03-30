@@ -1,16 +1,85 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>http://TsumaR_portfolio.com/en/sitemap.xml</loc>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>http://TsumaR_portfolio.com/ja/sitemap.xml</loc>
-		
-	   	<lastmod>2020-03-29T16:14:02+09:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.tsumar.com/projects/extpointer/</loc>
+    <lastmod>2020-03-29T23:23:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/projects/</loc>
+    <lastmod>2020-03-29T23:23:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/</loc>
+    <lastmod>2020-03-30T12:11:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/</loc>
+    <lastmod>2020-03-30T12:11:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/seurat/</loc>
+    <lastmod>2020-03-30T12:11:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/rna_seq_tools/</loc>
+    <lastmod>2020-03-30T01:36:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/shirokane_sutil/</loc>
+    <lastmod>2020-03-30T01:34:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/atac_seq_pipeline/</loc>
+    <lastmod>2020-03-30T01:30:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/shirokane_jupyter_r/</loc>
+    <lastmod>2020-03-30T01:26:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/portfolio/</loc>
+    <lastmod>2020-03-30T01:20:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/tags/code/</loc>
+    <lastmod>2020-03-29T23:35:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/tags/pipeline/</loc>
+    <lastmod>2020-03-29T23:35:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/tags/rna-seq/</loc>
+    <lastmod>2020-03-29T23:35:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/tags/</loc>
+    <lastmod>2020-03-29T23:35:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/toya_virus/</loc>
+    <lastmod>2020-03-29T23:35:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.tsumar.com/blog/supcon_r/</loc>
+    <lastmod>2020-03-29T16:14:02+09:00</lastmod>
+  </url>
+  
+</urlset>

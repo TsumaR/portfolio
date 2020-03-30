@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website Description">
+<title>
+SHIROKANEスパコンでjupyterからRを使用する - Ryota Wagatsuma
+</title>
+
+
+
+        <meta property="og:title" content="SHIROKANEスパコンでjupyterからRを使用する - Ryota Wagatsuma" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Website Description"/>
+<meta property="og:url" content="https://www.tsumar.com/blog/shirokane_jupyter_r/"/>
+<meta property="og:site_name" content="Ryota Wagatsuma"/>
+
+
+
+
+<meta property="og:image" content="https://www.tsumar.com/home/profile.JPG"/>
+
+
+
+
+        
+<link rel="shortcut icon" href="/img/fav.ico">
+
+
+        
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.1eaffbdff5446b797511e3967e8419d2ad7851677604addf74d560bdfc5f91c7.css" integrity="sha256-Hq/73/VEa3l1EeOWfoQZ0q14UWd2BK3fdNVgvfxfkcc=" crossorigin="anonymous" media="screen">
+
+
+
+
+
+        
+        
+        
+        
+    </head>
+    <body>
+        <section id="top" class="section">
+            
+            <div class="container hero  fade-in one ">
+                
+
+    <h1 class="bold-title is-1">Blog</h1>
+
+
+            </div>
+            
+            <div class="section  fade-in two ">
+                
+<div class="container">
+    <hr>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="navbar-menu " id="navMenu">
+            
+            
+            
+            
+            <a class="navbar-item" href="/"></a>
+            
+
+            
+            
+
+            
+                
+            
+
+            
+                
+            
+
+            
+            
+            
+            
+            
+            <a class="navbar-item" href="/#about">About</a>
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/projects/">
+                  
+                  Work
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                  <a class="navbar-item" href="https://www.tsumar.com/blog/">
+                  
+                  
+                  
+                  </a>
+                
+                
+            
+            
+            
+            
+
+            
+            
+            <a class="navbar-item" href="/#contact">Contact</a>
+            
+            
+
+            
+
+            
+            
+        </div>
+    </nav>
+    <hr>
+</div>
+
+
+
+                
+    <div class="container">
+        <h2 class="title is-1 top-pad strong-post-title">
+            <a href="https://www.tsumar.com/blog/shirokane_jupyter_r/">SHIROKANEスパコンでjupyterからRを使用する</a>
+        </h2>
+        <div class="post-data">
+            Mar 30, 2020 |
+            
+        </div>
+        
+        <div class="blog-share">
+            :
+            
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=SHIROKANE%e3%82%b9%e3%83%91%e3%82%b3%e3%83%b3%e3%81%a7jupyter%e3%81%8b%e3%82%89R%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20https%3a%2f%2fwww.tsumar.com%2fblog%2fshirokane_jupyter_r%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+            
+            
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.tsumar.com%2fblog%2fshirokane_jupyter_r%2f"  onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fab fa-facebook-f"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+            
+            
+            <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.tsumar.com%2fblog%2fshirokane_jupyter_r%2f&amp;description=SHIROKANE%e3%82%b9%e3%83%91%e3%82%b3%e3%83%b3%e3%81%a7jupyter%e3%81%8b%e3%82%89R%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b" onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+                <i class="fab fa-pinterest-p"></i>
+                <span class="hidden">Pinterest</span>
+            </a>
+            
+            
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fwww.tsumar.com%2fblog%2fshirokane_jupyter_r%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fab fa-google-plus-g"></i>
+                <span class="hidden">Google+</span>
+            </a>
+            
+        </div>
+        
+        
+    </div>
+    
+    <div class="container markdown top-pad">
+        <p>この記事は以前の東大スパコンからRを使用するのアップデート版の内容のため，一部重複しています。</p>
+<h1 id="jupyterでrを使う">jupyterでRを使う</h1>
+<p>東大スパコンはRstudioが使えないので，jupyterからRを動かせばノートブック形式でRを記載することができる。
+(このメモは確実に正しい情報であるとは限らないので，改めて調べる必要もある。)</p>
+<p>#　jupyterでRを起動するのに必要な操作　
+様々な記事があり，そのままコピペすれば動く。(例えば<a href="https://www.kimoton.com/entry/20180902/1535819542">これ</a>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ install.packages<span style="color:#f92672">(</span>c<span style="color:#f92672">(</span>‘repr’, ‘IRdisplay’, ‘evaluate’, ‘crayon’, ‘pbdZMQ’, ‘devtools’, ‘uuid’, ‘digest’<span style="color:#f92672">))</span>
+$ devtools::install_github<span style="color:#f92672">(</span>‘IRkernel/IRkernel’<span style="color:#f92672">)</span>
+$ IRkernel::installspec<span style="color:#f92672">()</span>
+<span style="color:#f92672">[</span>InstallKernelSpec<span style="color:#f92672">]</span> Installed kernelspec ir in /home/usr/.local/share/jupyter/kernels/ir
+</code></pre></div><h1 id="東大スパコンでrを使う">東大スパコンでRを使う　</h1>
+<p>この際，東大スパコンでデフォルトのRは<code>/usr/local</code>にあり，自由に書き換えることができない。そのため，パッケージのインストール先を自分で明記しないと自由にパッケージをインストールすることができない。
+ただ，R本体とパッケージが違う場所にあると管理が大変そうだと思ったので，自分は<code>/home/usrname</code>以下に自分用のRをインストールし，それをデフォルトとして使用するようにしている。この際，<code>~/.bash_profile</code>に下記の記載をすることで，デフォルトのRを自分でインストールしたものにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export PATH<span style="color:#f92672">=</span>/yshare1/home/myne812/R/3.6.0/lib64/R/bin:$PATH
+export R_LIBS_USER<span style="color:#f92672">=</span>/home/myne812/R/3.6.0/lib64/R/library:$R_LIBS_USER
+</code></pre></div><p>ここで，<code>library</code>の方にもパスを通さないとパッケージは<code>/usr/local</code>の方をデフォルトとして動いてしまうので注意。</p>
+<h1 id="詰まった点">詰まった点</h1>
+<p>IRkernelがきちんと挙動せずに下記のエラー</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Error opening stream: HTTP 404: Not Found <span style="color:#f92672">(</span>Kernel does not exist: cf2f9da8-d6f0-4910-aadb-ccc2e753273c<span style="color:#f92672">)</span>
+</code></pre></div><p>IRkernelは</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~/.local/share/jupyter/kernels/ir/
+</code></pre></div><p>に設定される。ここにR3.5.0の設定が残っていたことがR3.6.0を使おうとしたときにエラーが生じた原因だった。</p>
+<h1 id="未解決問題点">未解決問題点</h1>
+<p>下記のログが出続ける。R 3.6.0なのだが</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> 呼び出し:  cat ... system.file -&gt; find.package -&gt; lapply -&gt; FUN -&gt; readRDS
+ 実行が停止されました
+ readRDS<span style="color:#f92672">(</span>pfile<span style="color:#f92672">)</span> でエラー:
+   R 3.6.0 により書かれたバージョン <span style="color:#ae81ff">3</span> のワークスペースを読み取ることができません。R 3.5.0 もしくはそれ以上が必要です
+</code></pre></div><h3 id="この記事はmusicのチュートリアルを動かしたときに記載した">この記事はMuSiCのチュートリアルを動かしたときに記載した</h3>
+<p>(2020/03/27)</p>
+
+    </div>
+    
+    
+
+
+
+                
+                <div class="container">
+    <hr>
+</div>
+<div class="container has-text-centered top-pad">
+    <a href="#top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+</div>
+
+<div class="container">
+    <hr>
+</div>
+
+                <div class="section" id="footer">
+    <div class="container has-text-centered">
+    
+        <span class="footer-text">
+            
+        </span>
+    
+    </div>
+</div>
+
+                
+            </div>
+        </section>
+        
+        
+
+
+<script src="https://www.tsumar.com/js/bundle.e6934e69d06bb8a213134f4c1468f9478bb7755e786dfb60e3c5a917c5335805.js" integrity="sha256-5pNOadBruKITE09MFGj5R4u3dV54bftg48WpF8UzWAU="></script>
+
+
+
+        
+        
+        
+        
+    </body>
+</html>

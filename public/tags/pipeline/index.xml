@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pipeline on Ryota Wagatsuma</title>
+    <link>https://www.tsumar.com/tags/pipeline/</link>
+    <description>Recent content in pipeline on Ryota Wagatsuma</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 29 Mar 2020 23:35:30 +0900</lastBuildDate>
+    
+	<atom:link href="https://www.tsumar.com/tags/pipeline/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ウイルスゲノム検出パイプラインVIRTUSを使ってみる</title>
+      <link>https://www.tsumar.com/blog/toya_virus/</link>
+      <pubDate>Sun, 29 Mar 2020 23:35:30 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/toya_virus/</guid>
+      <description>to-ya Hi-Seqランの追加解析 Mi-Seqのデータでサイトメガロウイルスにマップされるリードが存在しなかったため，HiSeqで追加ランしたが，</description>
+    </item>
+    
+  </channel>
+</rss>

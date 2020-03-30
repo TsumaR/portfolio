@@ -1,28 +1,86 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post on Introduction</title>
-    <link>http://TsumaR_portfolio.com/blog/</link>
-    <description>Recent content in Post on Introduction</description>
+    <title>Blog on Ryota Wagatsuma</title>
+    <link>https://www.tsumar.com/blog/</link>
+    <description>Recent content in Blog on Ryota Wagatsuma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 29 Mar 2020 16:14:02 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2020 12:11:34 +0900</lastBuildDate>
     
-	<atom:link href="http://TsumaR_portfolio.com/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.tsumar.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Seuratを使ってみる</title>
+      <link>https://www.tsumar.com/blog/seurat/</link>
+      <pubDate>Mon, 30 Mar 2020 12:11:34 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/seurat/</guid>
+      <description>(2019.06.15) Seurat tutorialを行なって single cell解析パイプラインであるSeuraのtutorialを行なってみて，今後全ての解析において注意していか</description>
+    </item>
+    
+    <item>
+      <title>Rna_seq_tools</title>
+      <link>https://www.tsumar.com/blog/rna_seq_tools/</link>
+      <pubDate>Mon, 30 Mar 2020 01:36:33 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/rna_seq_tools/</guid>
+      <description>RNA-seqに使えるツール 近年のRNA-seq解析の進展は凄まじく，基本的に下流解析においてはSeurat，scanpy，Monocleと</description>
+    </item>
+    
+    <item>
+      <title>Shirokane supconでjupyter</title>
+      <link>https://www.tsumar.com/blog/shirokane_sutil/</link>
+      <pubDate>Mon, 30 Mar 2020 01:34:12 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/shirokane_sutil/</guid>
+      <description>この記事はよくないやり方を記載している。 改めて記事を書くので，これは参考にしないこと。 東大スパコンでjupyter labとVSCode 概要 jupyter</description>
+    </item>
+    
+    <item>
+      <title>Atac-seq pipeline 作成(バージョン1)</title>
+      <link>https://www.tsumar.com/blog/atac_seq_pipeline/</link>
+      <pubDate>Mon, 30 Mar 2020 01:30:13 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/atac_seq_pipeline/</guid>
+      <description>方針 このパイプラインを作成したときのデータのクオリティがあまりにも低かったため，大枠を作成するまでのログを残した。 今後データを見て，最適化し</description>
+    </item>
+    
+    <item>
+      <title>SHIROKANEスパコンでjupyterからRを使用する</title>
+      <link>https://www.tsumar.com/blog/shirokane_jupyter_r/</link>
+      <pubDate>Mon, 30 Mar 2020 01:26:29 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/shirokane_jupyter_r/</guid>
+      <description>この記事は以前の東大スパコンからRを使用するのアップデート版の内容のため，一部重複しています。 jupyterでRを使う 東大スパコンはRstu</description>
+    </item>
+    
+    <item>
+      <title>HugoとNetlifyでホームページ作成</title>
+      <link>https://www.tsumar.com/blog/portfolio/</link>
+      <pubDate>Mon, 30 Mar 2020 01:20:49 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/portfolio/</guid>
+      <description>このホームページを作成した時のログ portfolioを作る HUGOとnetifyで作成したportfolioにすることを目指した，ログブログ</description>
+    </item>
+    
+    <item>
+      <title>ウイルスゲノム検出パイプラインVIRTUSを使ってみる</title>
+      <link>https://www.tsumar.com/blog/toya_virus/</link>
+      <pubDate>Sun, 29 Mar 2020 23:35:30 +0900</pubDate>
+      
+      <guid>https://www.tsumar.com/blog/toya_virus/</guid>
+      <description>to-ya Hi-Seqランの追加解析 Mi-Seqのデータでサイトメガロウイルスにマップされるリードが存在しなかったため，HiSeqで追加ランしたが，</description>
+    </item>
+    
+    <item>
       <title>東大スパコン上でRを使う</title>
-      <link>http://TsumaR_portfolio.com/blog/supcon_r/</link>
+      <link>https://www.tsumar.com/blog/supcon_r/</link>
       <pubDate>Sun, 29 Mar 2020 16:14:02 +0900</pubDate>
       
-      <guid>http://TsumaR_portfolio.com/blog/supcon_r/</guid>
-      <description>/usr/local/に入っているRは編集権限がないため，そのままだと好きにパッケージをインストールして使うことができない。 この際，自分でRをインストールし，ビルドしてあげればいいのだが，自分の場合以下のエラーによりうまくいかなかった。
-checking libcurl version ... 7.64.1 checking curl/curl.h usability... yes checking curl/curl.h presence... yes checking for curl/curl.h... yes checking if libcurl is version 7 and &amp;gt;= 7.22.0... no configure: error: libcurl &amp;gt;= 7.22.0 library and headers are required with support for https そこで，インストールするのではなく，Rが参照するライブラリのディレクトリの設定を変更し，実行できるようにした。
-R_LIBS_USER環境変数の設定 .bash_profileに以下のpathを通し，Rが参照するディレクトリを自分の編集権限があるディレクトリに設定した。
-$export PATH=/yshare1/home/myne812/R/3.6.0/lib64/R/bin:$PATH $export R_LIBS_USER=/home/myne812/R/3.6.0/lib64/R/library:$R_LIBS_USER また，自分の場合はデフォルトでコピーしたRが起動するようにコピーしたRにもpathを通した。
-jupyter labで使えるようにする　 以上の操作を加えたら，jupyter labでRを使うのに必要なIRkernelパッケージのインストールも可能になっている。
-&amp;gt;install.packages(&amp;quot;devtools&amp;quot;) &amp;gt;install.packages(&amp;quot;IRkernel&amp;quot;) &amp;gt;IRkernel::installspec() を行い，jupyter labでRを自由に操作できるようにした。</description>
+      <guid>https://www.tsumar.com/blog/supcon_r/</guid>
+      <description>/usr/local/に入っているRは編集権限がないため，そのままだと好きにパッケージをインストールして使うことができない。 この際，自分でR</description>
     </item>
     
   </channel>
