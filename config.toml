@@ -89,4 +89,4 @@ DefaultContentLanguage           = "ja"                    # Default language fo
         [languages.ja.params]
             description  = "Website Description"   # Max 160 characters show in search results
             # footerText   = ""                      # Text to override default footer text (markdown allowed)
-
+            summaryLength = 1
