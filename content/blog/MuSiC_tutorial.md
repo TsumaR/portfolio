@@ -112,7 +112,7 @@ jitter.new = ggplot(m.prop.GSE50244, aes(Method, Prop)) +
 plot_grid(jitter.fig, jitter.new, labels = 'auto')
 ```
 
-[!jitter](https://xuranw.github.io/MuSiC/articles/images/GSE50244jitter.jpg)
+![jitter](https://xuranw.github.io/MuSiC/articles/images/GSE50244jitter.jpg)
 
 
 #### プロットの解釈 
@@ -142,7 +142,7 @@ ggplot(m.prop.ana, aes(HbA1c, ct.prop)) +
   scale_shape_manual(values = c(21, 24))
 ```
 
-[!fig](https://xuranw.github.io/MuSiC/articles/images/GSE50244beta.jpg) 
+![fig](https://xuranw.github.io/MuSiC/articles/images/GSE50244beta.jpg) 
 
 確かにT2Dにおけるbeta細胞の割合の減少はNNLSと比較してMuSiCでわかりやすく見られるは見られる。　
 この後，年齢やBMIを考慮した上で，実際にbeta細胞とHbA1cに非の相関関係があることを統計的に評価している。 
