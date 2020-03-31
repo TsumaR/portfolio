@@ -1,7 +1,6 @@
 ---
 title: "solid tissueに対するMuSiCチュートリアル"
 date: 2020-03-31T21:10:16+09:00
-draft: true
 ---
 
 #### MuSiCとは
