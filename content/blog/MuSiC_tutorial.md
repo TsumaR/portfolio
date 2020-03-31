@@ -198,4 +198,81 @@ summary(lm.beta.NNLS)
 #F-statistic: 1.096 on 4 and 72 DF,  p-value: 0.3651
 ```
 
+# benchmark
+single cellデータから人工的にbulkデータを作成しbenchmarkする。`bulk_construct`データで自分でもできるのはいいところ。
+ここでは，実際のbulkのcontentsを推測するのに使ったsingle cellと別の実験で取得したsingle cell RNA-seqデータから仮想のbulkデータを作成し，仮想データと実際のデータでbenchmarkする。
+
+#### 1. 4種類の細胞だけからなる人工bulkデータの作成
+ここではpancreasのsingle cellデータからbulkデータを作成している。
+
+```r
+XinT2D.construct.full = bulk_construct(XinT2D.eset,
+                                       clusters = 'cellType',
+                                        samples = 'SubjectName')
+```
+`XinT2D.construct.full`は人工bulkデータの`Bulk.count`と実際の細胞種カウントmatrixの`num.real`を含む。
+
+#### 2. 人工bulkデータの実際の細胞種をカウント
+人工bulkデータを生成したsingle cell RNA-seqデータと別のsingle cellデータを，推測用のデータとして使用。
+
+```r
+XinT2D.construct.full$prop.real = relative.ab(XinT2D.construct.full$num.real, by.col = FALSE)
+head(XinT2D.construct.full$prop.real)
+```
+結果は
+```
+#              alpha      beta      delta      gamma
+#Non T2D 1 0.7162162 0.1756757 0.06756757 0.04054054
+#Non T2D 2 0.1666667 0.5416667 0.08333333 0.20833333
+#Non T2D 3 0.6428571 0.2380952 0.07142857 0.04761905
+#Non T2D 4 0.5185185 0.3703704 0.00000000 0.11111111
+#Non T2D 5 0.4423077 0.4230769 0.09615385 0.03846154
+#Non T2D 6 0.7500000 0.1458333 0.08333333 0.02083333
+```
+
+#### 3. 人工データの推測
+```r
+Est.prop.Xin = music_prop(bulk.eset = XinT2D.construct.full$Bulk.counts, sc.eset = EMTAB.eset,
+                          clusters = 'cellType', samples = 'sampleID',
+                          select.ct = c('alpha', 'beta', 'delta', 'gamma'))
+```
+4種類だけだから，`music_prop`でいい。
+
+#### 4. 定量的に比較
+`Eval_multi`関数により，人工データとリアルbulkデータの細胞割合を以下の項目で評価し比較する。
+```
+root-mean-squared deviation (RMSD);
+mean absolute difference (mAD);
+Pearson’s correlation (R).
+```
+`Prop_comp_multi`, `Abs_diff_multi`,  `Scatter_multi`で可視化することができる。
+```r
+# Estimation evaluation
+
+Eval_multi(prop.real = data.matrix(XinT2D.construct.full$prop.real),
+           prop.est = list(data.matrix(Est.prop.Xin$Est.prop.weighted),
+                           data.matrix(Est.prop.Xin$Est.prop.allgene)),
+           method.name = c('MuSiC', 'NNLS'))
+
+#           RMSD     mAD      R
+#MuSiC   0.09881 0.06357 0.9378
+#NNLS    0.17161 0.11749 0.8159
+
+library(cowplot)
+prop.comp.fig = Prop_comp_multi(prop.real = data.matrix(XinT2D.construct.full$prop.real),
+                                prop.est = list(data.matrix(Est.prop.Xin$Est.prop.weighted),
+                                                data.matrix(Est.prop.Xin$Est.prop.allgene)),
+                                method.name = c('MuSiC', 'NNLS'),
+                                title = 'Heatmap of Real and Est. Prop' )
+
+abs.diff.fig = Abs_diff_multi(prop.real = data.matrix(XinT2D.construct.full$prop.real),
+                              prop.est = list(data.matrix(Est.prop.Xin$Est.prop.weighted),
+                                              data.matrix(Est.prop.Xin$Est.prop.allgene)),
+                              method.name = c('MuSiC', 'NNLS'),
+                              title = 'Abs.Diff between Real and Est. Prop' )
+
+plot_grid(prop.comp.fig, abs.diff.fig, labels = "auto", rel_widths = c(4,3))
+```
+![result](https://xuranw.github.io/MuSiC/articles/images/benchmark.jpg)
+
 
