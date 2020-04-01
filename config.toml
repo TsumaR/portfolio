@@ -33,8 +33,8 @@ hasCJKLanguage                   = true
     [params.share]
         twitter                  = true
         facebook                 = true
-        googlePlus               = true
-        pinterest                = true
+        googlePlus               = false
+        pinterest                = false
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
