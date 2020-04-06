@@ -1,7 +1,7 @@
 ---
 title: "Vue.jsの基礎をお勉強した話"
 date: 2020-04-06T10:30:45+09:00
-draft: true
+draft: false
 ---
 
 ## Vue.jsとは
