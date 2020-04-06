@@ -14,6 +14,7 @@ JavaScriptでUI部品を作るためのフレームワーク。noteや一休.com
 そもそもの一人開発についてはせっかくなのでQiitaの[アドベントカレンダー](https://qiita.com/advent-calendar/2019/solo-developer)を見るのがいいだろう。 
 
 ちなみに，フロントの知識皆無の人間が書いている。JavaScriptも昔，少しだけ勉強しようとしたが実際にコーディングした経験はない。htmlの基礎の基礎タグについての軽い知識はある。
+JavaScriptの勉強は，progateの無料部分→ドットインストールの無料講座→[しまぶーさんのyoutube](https://www.youtube.com/watch?v=vD1qoNrU8FY&t=550s)という順で勉強した。１日かからずに概要自体は理解できるので割と良い勉強法だったのではないかと思う。
 
 ***
 
@@ -47,7 +48,7 @@ Vue.jsは双方向データバインディングを行えるのが大きな特�
 })();
 ```
 これがVue.jsの書き方である。
-* `var`とは：JavaScriptにおける変数定義法。再宣言ができるのでローカル変数の定義に便利。`let`は再代入はできるが，再宣言ができないのが大きな違い。
+* `var`とは：JavaScriptにおける変数定義法。再宣言ができるのでローカル変数の定義に便利。`let`は再代入はできるが，再宣言ができないのが大きな違い。(しまぶーさんはvarを使うことはないと言っていた)
 * `new Vue`：宣言的にデータをDOMに描画している。
 * `el`とは：Vue.jsの文法。Vue()の中にあるのだから理にかなっている。mountする要素を指定している。elementの略で，Vue.jsが作用を及ぼす範囲を指定するということ。
 * `data`の中身：key:値で指定している。
@@ -105,7 +106,7 @@ const app = new Vue({
 ```html
 <p><input type="text" v-model="name"></p>
 ```
-一方で，入力データを画面に表示させず，常にデータとして持っている必要がない場合は`ref`属性を使う。`ref`属性を使って参照するための名前をタグ付けしておくと，その`DOM`に直接アクセスできる。今回の例の場合，
+一方で，入力データを画面に表示させず，常にデータとして持っている必要がない場合は`ref`属性を使う。`ref`属性を使って参照するための名前をタグ付けしておくと，その`DOM`に直接アクセスできる。今回の例の場合下のように記載することで`ref`参照を行うようにする。一方で，全表示の切り替えボタンなどにおいては`v-model`もよく使う要素の一つなので覚えておく必要がある。
 ```html
 <input type="text" ref="comment">
 ```
@@ -114,6 +115,8 @@ const app = new Vue({
 this.$refs.comment.value
 ```
 のように，`this`をつける必要がある。ちなみに`DOM`とは「Document Object Model」の略で，ファイルの特定の部分に目印を付けて「この部分」に「こういう事をしたい」という処理を可能にするための取り決めのこと。
+(余談)
+バックエンドエンジニアは，データベースなどからweb APIを介してJSONを返す仕組みを作る。JSONをHTMLに落とし込むのははパースという操作。DOM操作はこのパースを行う一つ一つの操作のこと。多分。
 
 少し冗長になるが，
 ```html
@@ -184,3 +187,40 @@ watch: {
   }
 }
 ```
+ストレージからデータを取得する際にはインスタンス作成時に実行される用，**ライフサイクルフック**のメソッドを使用していた。ライフサイクルメソッドは特定のタイミングに何かの処理を挟みたいときに用いるメソッドのことである。`todoStorage`オブジェクトの`fetch`メソッドを利用していた。
+
+##### 算出プロパティ 
+ドットインストールの中で，二重カッコの中に式を描くことができると書いたが，長すぎる式をかくとコードが肥大化してしまう。そのような複雑な処理を施したい場合は算出プロパティを利用するべきである。
+以下，Helloを逆から表示する例
+
+html
+```html
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+```
+
+JavaScript
+```JavaScript
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // 算出 getter 関数
+    reversedMessage: function () {
+      // `this` は vm インスタンスを指します
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+
+算出プロパティは，リアクティブな依存関係が更新されない限りキャッシュされる。そのため，上の例では`message`が変わらない限り，何度`reverseMessage`にアクセスしても，関数を実行することなく以前計算された結果を即時に返すことができる。 
+定義方法は違うが使い方はデータと一緒。`v-for="item in reversedMessage"などと指定すれば良い。
+
+
+#### ToDoアプリの完成品
+https://waseda.box.com/s/vhc8ds7lej7znyclk1h5bt7axop3kroa
