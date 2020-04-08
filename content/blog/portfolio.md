@@ -5,10 +5,6 @@ date: 2020-03-30T01:20:49+09:00
 
 このホームページを作成した時のログ
 
-
-
-
-
 # portfolioを作る
 HUGOとnetifyで作成したportfolioにすることを目指した，ログブログ。
 git submoduleの使い方に詰まったので，[この記事](https://qiita.com/sotarok/items/0d525e568a6088f6f6bb)などを参考にした。

@@ -133,3 +133,101 @@ irisNuxt
 ### 3.入力受付フォームの作成
 
 `components`ディレクトリに画面出力のコンテンツを作成する。1つのvueインスタンスを作成することで，名前に応じて複数回利用されるよう設計できる。逆に言えばコンテンツをパーツ毎にファイル分けして作成できる。
+ここで，ここまで来て自分の知識が欠如しており，コンポーネントを理解していなかったので，ここに捕捉する。(完全に自分のためである。)
+
+#### 3.1.(補足)コンポーネント
+
+##### インスタンス
+
+前日までの勉強において，Vue.jsではJavaScriptの中でインスタンスの生成を宣言して利用していた。細かくいうと，`new Vue`でインスタンスを生成，その中のel要素で，htmlの，どの部分を対象としてVueを使用するかを定義していた。html1箇所に対する操作としてvueインスタンスを定義していた。
+
+```html:html
+<div id='app'>
+</div>
+```
+
+```JavaScript:js
+new Vue({
+  el: '#app'
+})
+```
+
+上記の例である。しかし，今回Nuxt.jsでは，JavaScriptを直接記載することなく，`.vue`ファイルを生成して，操作ごとを記載していた。操作ごとの定義，`.vue`ファイルとは，について理解がしっくりこなかったため調べた。
+
+##### コンポーネント
+
+上でも記載したように，コンポーネントとは再利用可能なVueインスタンス要素である。複数のコンポーネントを作成して，それを部品のように組み立てることで1つのWebページを作ることができる。先ほどのインスタンスの生成ほうでは，html要素を指定してインスタンスを指定していたため，このような操作ができなかった。
+
+##### vueファイル
+
+コンポーネント自体は通常のインスタンス生成の時と同じようにJavaScriptで定義できる。一方で，`.vue`ファイル一つ一つで一つのコンポーネントを構成することができる。
+詳しくは公式ドキュメントかこの[記事](https://qiita.com/kiyokiyo_kzsby/items/980c1dc45e00d2d3cbb4)を参考にするとよい。
+vueファイルの中身は主に，
+
+* templateタグ：コンポーネントのhtml要素を埋め込む
+* scriptタグ：JavaScriptを記載する
+* styleタグ：cssを記載する
+
+からなる。Nuxt.jsでは基本的にVueファイルで全てを？管理する。
+
+#### 3.2.実際のスクリプト
+
+```vue
+<template>
+  <form>
+    <div>
+      <v-text-field
+        v-model="$store.state.sepalLength"
+        label="Sepal Length"
+        ></v-text-field>
+      <v-text-field
+        v-model="$store.state.sepalWidth"
+        label="Sepal Width"
+        ></v-text-field>
+      <v-text-field
+        v-model="$store.state.petalLength"
+        label="Petal Length"
+        ></v-text-field>
+      <v-text-field
+        v-model="$store.state.petalLength"
+        label="Petal Length"
+        ></v-text-field>
+    </div>
+  </form>
+</template>
+
+<script>
+export default {
+  name: "FormText"
+}
+</script>
+
+<style scoped>
+</style>
+```
+
+componentのなかのFormText.vueにvueのコンポーネントを記載。
+`template`，`form`内に，2つの<div>`で
+
+```vue
+<v-text-field
+  v-model="$store.state.sepalLength"
+  label="Sepal Length"
+  ></v-text-field>
+```
+
+が４つからなるtext入力フォームと，
+
+```vue
+<div class="predict">
+  //クリックした時にsbmit/clearメソッドの実行
+      <v-btn @click="submit">submit</v-btn>
+      <v-btn @click="clear">clear</v-btn>
+      <h1 v-if="$store.state.predictLabel">Predicted label is {{ $store.state.predictedLabel }}</h1>
+    </div>
+```
+
+submitとclearボタンの機能はscriptの中に`sbumit`と`clear`という名前のメソッドで追加する。
+
+うーん。なぜかうまくいかない。
+書類買ったから明日やる。
