@@ -1,15 +1,17 @@
 ---
-title: "NuxtIris"
+title: "Nuxt.js１日目。バックエンドPythonで"
 date: 2020-04-07T23:49:34+09:00
 ---
 
 ## Nuxt.jsを始めて使ってみる
 
 Nuxt.jsは、ディレクトリ構成やルーティングやレンダリングなどを行ってくれるVue.jsのフレームワークです。
+<!--more-->
 なんたるかは[ここ](https://qiita.com/Kentaro91011/items/406d8121775f98ddd84d)
 中身については[公式ドキュメント](https://ja.nuxtjs.org/guide/installation)が日本語で非常に充実している。
 今回は[この記事](https://qiita.com/kurakura0916/items/7a19355e8dc5d63f4631)を参考に，バックエンドをPythonで，フロントをNuxt.jsを用いて簡単なwebアプリを作成する手法を勉強する。
 ![作るもの](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F270991%2F2a1e433d-73b9-3f48-ddf4-362d0f112a8f.gif?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&w=1400&fit=max&s=b54923a77ea74266e15e82c62c3fefb0)
+スクリプトに関してはほとんど上の記事ままなので，参考になったら上の記事にLGTMしにいってください。
 
 この[サイト](https://b1tblog.com/2019/12/24/nuxt-app1/)勉強になりそうなので，次にこれ触るといいかもと思った，というメモ。
 
@@ -69,7 +71,13 @@ components              nuxt.config.js          plugins
 layouts                 package-lock.json       static
 ```
 
-今回は，以下のように構成する。
+* assets：StylesやSASS，Image，Fontのようなコンパイルされていないファイル
+* components：Vue.jsのコンポーネントファイル。名前付きの再利用可能なVueインスタンスのこと。
+* layouts：サイドバーなど，ページの外観を変更するために使用される。
+* middleware：ページやページグループをレンダリングするよりも前に実行されるカスタム関数を定義できる。
+* pages：アプリケーションのビューおよび，ルーティングファイルをいれる。このディレクトリないすべての`.vue`ファイルがアプリとして含まれる。
+
+今回は，以下のように構成する([元記事](https://qiita.com/kurakura0916/items/7a19355e8dc5d63f4631)まま。
 
 ```bash
 irisNuxt
@@ -93,4 +101,35 @@ irisNuxt
 
 ### 3.ヘッダーとフッターの追加
 
-`layouts`ディレクトリ内にある，`defaoult.vue`を変更してヘッダーとフッターを追加する。
+`layouts`ディレクトリ内にある，`default.vue`を変更してヘッダーとフッターを追加する。ここから先は自分の備忘録でもあるので，細かい内容に関しては元記事を見てください。
+
+```vue
+<template>
+  <v-app>
+    <v-toolbar
+      app
+      color="primary"
+      class="white--text"
+    >
+      <v-toolbar-side-icon class="white--text"/>
+      <v-toolbar-title>Title</v-toolbar-title>
+    </v-toolbar>
+
+    <v-content>
+      <v-container>
+      <nuxt/>
+      </v-container>
+    </v-content>
+
+    <v-footer
+      app
+    >
+      <span>Footer</span>
+    </v-footer>
+  </v-app>
+</template>
+```
+
+### 3.入力受付フォームの作成
+
+`components`ディレクトリに画面出力のコンテンツを作成する。1つのvueインスタンスを作成することで，名前に応じて複数回利用されるよう設計できる。逆に言えばコンテンツをパーツ毎にファイル分けして作成できる。
