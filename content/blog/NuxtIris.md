@@ -230,4 +230,136 @@ componentのなかのFormText.vueにvueのコンポーネントを記載。
 submitとclearボタンの機能はscriptの中に`sbumit`と`clear`という名前のメソッドで追加する。
 
 うーん。なぜかうまくいかない。
-書類買ったから明日やる。
+上記のQiitaのまま動かすと，headerが画面の半分以上を占める気持ちわるいUIになってしまう。
+ということで書籍の勉強に移る。
+
+### 1.デフォルト画面の作成
+
+ヘッダーとフッターの作成をリベンジ
+`layouts/default.vue`を書き換える。
+一旦全てを消去し，
+
+```vue
+<template>
+  <v-app>
+    <!-- この中に HTML を記載する -->
+  </v-app>
+</template>
+  
+<script lang="ts">
+  // この中に TypeScript を記載する
+  import Vue from ’Vue’
+  import Component from ’nuxt-class-component’
+
+  @Component
+  export default class Layout extends Vue {}
+</script>
+
+<style scoped>
+/* この中に CSS を記載して style を定義 */
+</style>
+```
+
+に書き換える。と思ったが，うまくいかないし勉強にならないので調べながら一つ一つ書いた。
+[【vue.js】Vuefityをマスターする(1)](https://reffect.co.jp/vue/vuetify-for-beginner)という記事が参考になる。1からvuetifyを使って作成する手順が書いてある。
+タグの命名規則は下の画像の通り。Vuetifyのタグにはすべて”v-“が先頭につく。
+![命名](https://reffect.co.jp/wp-content/uploads/2019/09/vue_dashbord-layout.png)
+
+```vue
+
+<template>
+  <v-app>
+    <v-toolbar
+      app
+      color="primary"npm
+      class="white--text"
+    >
+      <v-toolbar-side-icon class="white--text"/>
+      <v-toolbar-title v-text="title"/>
+    </v-toolbar>
+
+    <v-content>
+      <v-container>
+        <nuxt/>
+      </v-container>
+    </v-content>
+
+    <v-footer
+      app
+    >
+      <span>&copy; TsumaR 2020</span>
+    </v-footer>
+  </v-app>
+
+</template>
+  
+<script>
+  // この中に TypeScript を記載する
+  
+</script>
+
+<style scoped>
+/* この中に CSS を記載して style を定義 */
+</style>
+```
+
+mountedはコンポーネントの DOM が生成されたあとに走る処理
+
+Vuex アプリケーションの中心にあるものはストアです。"ストア" は、基本的にアプリケーションの 状態（state） を保持するコンテナです。単純なグローバルオブジェクトとの違いが 2つあります。
+
+Vuex ストアはリアクティブです。Vue コンポーネントがストアから状態を取り出すとき、もしストアの状態が変化したら、ストアはリアクティブかつ効率的に更新を行います。
+
+ストアの状態を直接変更することはできません。明示的にミューテーションをコミットすることによってのみ、ストアの状態を変更します。これによって、全ての状態の変更について追跡可能な記録を残すことが保証され、ツールでのアプリケーションの動作の理解を助けます。
+
+#### Vuex の状態を Vue コンポーネントに入れる
+
+[vueの算出プロパティ](https://jp.vuejs.org/v2/guide/computed.html)を使うのが簡単
+
+```JavaScript
+// Counter コンポーネントをつくってみましょう
+const Counter = {
+  template: `<div>{{ count }}</div>`,
+  computed: {
+    count () {
+      // storeのstateのcountを返している
+      return store.state.count
+    }
+  }
+}
+```
+
+ちなみに，この際のstoreは以下の通り
+
+```JavaScript
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+```
+
+ Vuex のストアの状態を変更できる唯一の方法は、ミューテーションをコミットすることです。
+
+ ではNuxt.jsのsotreディレクトリでstore管理する方法。
+ [公式サイト](https://ja.nuxtjs.org/guide/vuex-store)を参考にした。
+
+ まずはじめに、store/index.js 内でステートを関数として、ミューテーション、アクションをオブジェクトとしてエクスポートします
+
+ 
+
+[getter](https://vuex.vuejs.org/ja/guide/getters.html)の話は戸惑った。
+
+#### actions
+
+アクションはミューテーションと似ていますが、下記の点で異なります:
+
+アクションは、状態を変更するのではなく、ミューテーションをコミットします。
+アクションは任意の非同期処理を含むことができます。
+API にアクセスして、なにか値を取得したい! という場合は Actions を使います。 Actions は非同期前提で、Actions から Mutations を呼んで、state を更新します。
+今回、「アルコール濃度」などのワインの属性値は API 側に持っているためこれを Actions で呼び出して取得しています。
+
