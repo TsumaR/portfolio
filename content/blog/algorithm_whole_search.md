@@ -1,7 +1,7 @@
 ---
 title: "Pythonでアルゴリズムの勉強~全探索"
 date: 2020-04-30T01:52:09+09:00
-draft: true
+draft: false
 ---
 
 [AtCoder 版！蟻本 (初級編)](https://qiita.com/drken/items/e77685614f3c6bf86f44)でアルゴリズムの勉強。自力で解けなかった問題もあるので復讐が必要。
