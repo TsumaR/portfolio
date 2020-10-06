@@ -1,6 +1,7 @@
 ---
 title: "Atac-seq pipeline 作成(バージョン1)"
 date: 2020-03-30T01:30:13+09:00
+draft:true
 ---
 
 # 方針
