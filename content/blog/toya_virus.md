@@ -2,6 +2,7 @@
 title: "ウイルスゲノム検出パイプラインVIRTUSを使ってみる"
 date: 2020-03-29T23:35:30+09:00
 tags: ["code", "rna-seq", "pipeline"]
+draft: true
 ---
 
 # to-ya Hi-Seqランの追加解析
