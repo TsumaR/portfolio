@@ -24,7 +24,8 @@ conda create -n cwl_env
 pip install cwl 
 ``` 
 この際，condaでインストールしようとしたが，謎のエラーが発生したので，pipを使った。　
-また，一部のcwlはjavascriptを利用しているため，node.jsが必要になるのでインストールする。 
+また，一部のcwlはnode.jsを必要とするのでインストールする。
+
 ```sh
 conda install nodejs 
 ```
